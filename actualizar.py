@@ -1,6 +1,6 @@
 from database import Database
 
-class Update:
+class Actualizar:
     def __init__(self):
         self.connection = Database.get_connection()
 
@@ -9,11 +9,11 @@ class Update:
         campeon_id = int(input("Ingrese el ID del campeón que desea actualizar: "))
 
         # Pedir nuevos valores para los campos del campeón
-        nuevo_nombre = input("Nuevo nombre del campeón (dejar vacío para no cambiar): ")
-        nuevo_rol = input("Nuevo rol del campeón (dejar vacío para no cambiar): ")
-        nuevas_habilidades = input("Nuevas habilidades del campeón (dejar vacío para no cambiar): ")
+        nuevo_nombre = input("Nuevo nombre del campeon (dejar vacio, para no cambiar): ")
+        nuevo_rol = input("Nuevo rol del campeon (dejar vacio, para no cambiar): ")
+        nuevas_habilidades = input("Nuevas habilidades del campeón (dejar vacío, para no cambiar): ")
 
-        # Actualizar campos del campeón
+        # Actualizar campos del campeon
         cursor = self.connection.cursor()
         if nuevo_nombre:
             cursor.execute("UPDATE campeones SET nombre=%s WHERE id=%s", (nuevo_nombre, campeon_id))
@@ -70,7 +70,7 @@ class Update:
         partida = cursor.fetchone()
 
         if partida:
-            print(f"Partida actual relacionada: ID: {partida[0]}, Modo: {partida[1]}, Jugadores: {partida[2]}")
+            print(f"\n Partida actual relacionada: ID: {partida[0]}, Modo: {partida[1]}, Jugadores: {partida[2]}")
             actualizar_partida = input("¿Desea actualizar la partida asociada? (s/n): ").lower()
 
             if actualizar_partida == "s":

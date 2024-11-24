@@ -32,3 +32,15 @@ class Read:
         print("Partidas y Campeones Involucrados:")
         for p in partidas:
             print(f"ID Partida: {p[0]}, Modo: {p[1]}, Jugadores: {p[2]}, ID Campeón: {p[3] or 'Ninguno'}, Nombre Campeón: {p[4] or 'Ninguno'}")
+
+    def listar_itmes(self):
+        cursor = self.connection.cursor()
+        query = """
+            SELECT i.id, i.nombre, i.tipo, i.costo, c.id AS campeon_id, c.nombre AS campeon_nombre
+            FROM items i 
+            LEFT JOIN campeones c ON i.campeon_id = c.id
+            """
+        cursor.execute(query)
+        items = cursor.fetchall()
+        for i in items:
+            print(f"ID Item: {i[0]}, Nombre Ítem: {i[1]}, Tipo: {i[2]}, Costo: {i[3]}, ID Campeón: {i[4] or 'Ninguno'}, Nombre Campeón: {i[5] or 'Ninguno'}")
