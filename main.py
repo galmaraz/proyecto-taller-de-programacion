@@ -18,11 +18,13 @@ def main():
         print("2. Ver Campeones, Ítems y Partidas")
         print("3. Ver Partidas")
         print("4. Ver items")
-        print("5. Actualizar Campeón y su Ítem Relacionado y partida ")
-        print("6. Eliminar campeon")
-        print("7. Eliminar partida")
-        print("8. Eliminar item")
-        print("9. Salir")
+        print("5. Actualizar Campeón")
+        print("6. Actualizar item")
+        print("7. Actualizar partida")
+        print("8. Eliminar campeon")
+        print("9. Eliminar partida")
+        print("10. Eliminar item")
+        print("11. Salir")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
@@ -41,15 +43,21 @@ def main():
             # Actualizar Campeón y su Ítem Relacionado
             update.actualizar_campeon()
         elif opcion == "6":
+            # Actualizar item
+            update.actualizar_item()
+        elif opcion == "7":
+            #Actualizar partida
+            update.actualizar_partida()
+        elif opcion == "8":
             #Elimina al un campeon 
             delete.eliminar_campeon()
-        elif opcion == "7":
+        elif opcion == "9":
             #Elimina un partida
             delete.eliminar_partida()
-        elif opcion == "8":
+        elif opcion == "10":
             #Elimina un item 
             delete.eliminar_item()
-        elif opcion == "9":
+        elif opcion == "11":
             # Salir del Programa
             print("¡Hasta luego!")
             Database.close_connection()
