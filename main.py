@@ -5,6 +5,8 @@ from actualizar import Actualizar
 from eliminar import Delete
 from database import Database
 from ordenar import Ordenar
+from buscar import Buscar
+
 
 
 def main():
@@ -14,6 +16,8 @@ def main():
     update = Actualizar()
     delete = Delete()
     ordenar = Ordenar()
+    buscar = Buscar()
+
 
 
     while True:
@@ -28,8 +32,9 @@ def main():
         print("8. Eliminar campeon")
         print("9. Eliminar partida")
         print("10. Eliminar item")
-        print("11. Salir")
-        print("12. Ordenar campeones por nombre")
+        print("11. Ordenar campeones por nombre")
+        print("12. Buscar campeones por nombre o rol")
+        print("13. Salir")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
@@ -63,13 +68,14 @@ def main():
             #Elimina un item 
             delete.eliminar_item()
         elif opcion == "11":
+            ordenar.ordenar_campeones()
+        elif opcion == "12":
+            buscar.buscar_campeon()
+        elif opcion == "13":
             # Salir del Programa
             print("¡Hasta luego!")
-        elif opcion == "12":
-            ordenar.ordenar_campeones()
             Database.close_connection()
             break
-
         else:
             print("Opción no válida. Por favor seleccione nuevamente.")
 
