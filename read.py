@@ -42,5 +42,6 @@ class Read:
             """
         cursor.execute(query)
         items = cursor.fetchall()
+        print("Item y Campeon Involucrados:")
         for i in items:
             print(f"ID Item: {i[0]}, Nombre Ítem: {i[1]}, Tipo: {i[2]}, Costo: {i[3]}, ID Campeón: {i[4] or 'Ninguno'}, Nombre Campeón: {i[5] or 'Ninguno'}")
