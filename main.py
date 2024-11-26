@@ -4,6 +4,8 @@ from read import Read
 from actualizar import Actualizar
 from eliminar import Delete
 from database import Database
+from ordenar import Ordenar
+
 
 def main():
     # Instanciar las clases
@@ -11,6 +13,8 @@ def main():
     read = Read()
     update = Actualizar()
     delete = Delete()
+    ordenar = Ordenar()
+
 
     while True:
         print("\n--- Menú Principal ---")
@@ -25,6 +29,7 @@ def main():
         print("9. Eliminar partida")
         print("10. Eliminar item")
         print("11. Salir")
+        print("12. Ordenar campeones por nombre")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
@@ -60,6 +65,8 @@ def main():
         elif opcion == "11":
             # Salir del Programa
             print("¡Hasta luego!")
+        elif opcion == "12":
+            ordenar.ordenar_campeones()
             Database.close_connection()
             break
 

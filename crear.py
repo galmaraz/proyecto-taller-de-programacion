@@ -26,7 +26,7 @@ class Crear:
         print(f"¡Item creado para el campeón {nombre}!")
 
         # Crear Partida y Relación
-        modo = input("Modo de juego de la partida 'Clasificatoria, Normal, Aram': ")
+        modo = input("Modo de juego de la partida \n'Clasificatoria,\n Normal,\n Aram': ")
         num_jugadores = int(input("Numero de jugadores: "))
         sql_partida = "INSERT INTO partidas (modo, num_jugadores) VALUES (%s, %s)"
         cursor.execute(sql_partida, (modo, num_jugadores))
