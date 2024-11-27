@@ -9,7 +9,9 @@ def menu_jugador(jugador):
         print("2. Ver Campeones")
         print("3. Ver Ítems")
         print("4. Ver Partidas")
-        print("5. Salir")
+        print("5. Actualizar Partida")
+        print("6. Eliminar Partida")
+        print("7. Salir")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
@@ -21,9 +23,16 @@ def menu_jugador(jugador):
         elif opcion == "4":
             jugador.ver_partidas()
         elif opcion == "5":
+            jugador.actualizar_partida()
+        elif opcion == "6":
+            jugador.eliminar_partida()
+        elif opcion == "7":
+            print("Saliendo...")
             break
         else:
             print("Opción inválida.")
+
+
 
 def main():
     Database.connect()
