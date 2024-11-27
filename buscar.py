@@ -27,9 +27,8 @@ class Buscar:
             return
 
         resultados = cursor.fetchall()
-
         if resultados:
-            print("\nResultados encontrados:")
+            print("\nResultados encontrados: ")
             for id_campeon, nombre, rol, habilidades in resultados:
                 print(f"ID: {id_campeon}, Nombre: {nombre}, Rol: {rol}, Habilidades: {habilidades}")
         else:

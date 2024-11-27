@@ -5,7 +5,7 @@ class Actualizar:
         self.connection = Database.get_connection()
 
     def actualizar_campeon(self):
-        campeon_id = int(input("Ingrese el ID del campeón que desea actualizar: "))
+        campeon_id = int(input("\n Ingrese el ID del campeón que desea actualizar: "))
         cursor = self.connection.cursor()
         #Verificar si hay el campeon
         cursor.execute("SELECT id, nombre, rol, habilidades FROM campeones WHERE id=%s", (campeon_id,))
