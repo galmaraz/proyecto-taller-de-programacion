@@ -1,11 +1,9 @@
-2
 
 from gestor_crear import IniciarSesion
 from administrador import Administrador
 from jugador import Jugador
 from database import Database
-from ordenar import Ordenar
-from buscar import Buscar  
+from ordenar import Ordenar 
 
 def menu_jugador(jugador):
     ordenador = Ordenar()   
@@ -44,7 +42,6 @@ def menu_jugador(jugador):
 
 
 def menu_administrador(administrador):
-    buscar = Buscar()
     while True:
         print("\n=== Menú Administrador ===")
         print("1. Crear Campeon")
