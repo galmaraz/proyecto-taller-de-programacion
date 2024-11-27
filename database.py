@@ -11,7 +11,7 @@ class Database:
                     host="localhost",
                     user="root",
                     password="",
-                    database="taller"
+                    database="LOL"
                 )
                 print("Conexión establecida con la base de datos.")
             except mysql.connector.Error as err:
