@@ -18,10 +18,15 @@ class Administrador:
         print(f"¡Campeón creado con ID: {campeon_id}!")
     
     def crear_item(self, campeon_id):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT id FROM campeones WHERE id=%s", (campeon_id,))
+        campeon = cursor.fetchone()
+        if not campeon:
+            print(f"Error: No existe un campeón con ID {campeon_id}.")
+            return  # Termina el método si no hay campeón
         nombre = input("Ingrese el nombre del item: ")
         tipo = questionary.select("¿Qué tipo de item quiere?", choices=["Daño físico", "Daño mágico", "Penetración de armadura", "Armadura física", "Armadura mágica"]).ask()
         costo = int(input("Ingrese el costo del item: "))
-        cursor = self.connection.cursor()
         sql_item = "INSERT INTO items (nombre, tipo, costo, campeon_id) VALUES (%s, %s, %s, %s)"
         cursor.execute(sql_item, (nombre, tipo, costo, campeon_id))
         self.connection.commit()

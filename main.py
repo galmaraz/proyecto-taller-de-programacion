@@ -50,7 +50,8 @@ def menu_administrador(administrador):
             administrador.crear_campeon()
         elif opcion == "2":
             # Crear Ítem
-            administrador.crear_item()
+            campeon_id = int(input("Ingrese el ID del campeon al cual quieres asociar el item: "))
+            administrador.crear_item(campeon_id)
         elif opcion == "3":
             # Actualizar Campeón 
             administrador.actualizar_campeon()
@@ -66,7 +67,6 @@ def menu_administrador(administrador):
         elif opcion == "7":
             # Salir del Programa
             print("Saliendo...")
-            Database.close_connection()
             break
         else:
             print("Opción no válida. Por favor seleccione nuevamente.")
