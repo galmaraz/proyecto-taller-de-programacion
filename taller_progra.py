@@ -1,1 +1,0 @@
-# realizar cada unos us partes del crud
