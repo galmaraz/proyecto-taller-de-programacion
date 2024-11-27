@@ -24,7 +24,7 @@ class Ordenar:
         """
         cursor = self.connection.cursor()
         # Obtiene todos los campeones con sus IDs y nombres
-        cursor.execute("SELECT id, nombre FROM campeones")
+        cursor.execute("SELECT id_campeon, nombre FROM campeones")
         campeones = cursor.fetchall()
 
         if not campeones:

@@ -1,9 +1,15 @@
+2
+
 from gestor_crear import IniciarSesion
 from administrador import Administrador
 from jugador import Jugador
 from database import Database
+from ordenar import Ordenar
+from buscar import Buscar  
 
 def menu_jugador(jugador):
+    ordenador = Ordenar()   
+
     while True:
         print("\n=== Menú Jugador ===")
         print("1. Crear Partida")
@@ -12,7 +18,8 @@ def menu_jugador(jugador):
         print("4. Ver Partidas")
         print("5. Actualizar Partida")
         print("6. Eliminar Partida")
-        print("7. Salir")
+        print("7. Ordenar Campeones")
+        print("8. Salir")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
@@ -28,12 +35,16 @@ def menu_jugador(jugador):
         elif opcion == "6":
             jugador.eliminar_partida()
         elif opcion == "7":
+            ordenador.ordenar_campeones()
+        elif opcion == "9":
             print("Saliendo...")
             break
         else:
             print("Opción inválida.")
 
+
 def menu_administrador(administrador):
+    buscar = Buscar()
     while True:
         print("\n=== Menú Administrador ===")
         print("1. Crear Campeon")
