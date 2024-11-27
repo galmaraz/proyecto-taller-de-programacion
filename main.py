@@ -1,4 +1,5 @@
-from gestor_crear import Crear, IniciarSesion
+from gestor_crear import IniciarSesion
+from administrador import Administrador
 from jugador import Jugador
 from database import Database
 
@@ -32,7 +33,43 @@ def menu_jugador(jugador):
         else:
             print("Opción inválida.")
 
+def menu_administrador(administrador):
+    while True:
+        print("\n=== Menú Administrador ===")
+        print("1. Crear Campeon")
+        print("2. Crear item")
+        print("3. Actualizar Campeon")
+        print("4. Actualizar item")
+        print("5. Eliminar campeon")
+        print("6. Eliminar item")
+        print("7. Salir")
+        opcion = input("Seleccione una opción: ")
 
+        if opcion == "1":
+            # Crear Campeón 
+            administrador.crear_campeon()
+        elif opcion == "2":
+            # Crear Ítem
+            administrador.crear_item()
+        elif opcion == "3":
+            # Actualizar Campeón 
+            administrador.actualizar_campeon()
+        elif opcion == "4":
+            # Actualizar item
+            administrador.actualizar_item()
+        elif opcion == "5":
+            #Elimina al un campeon 
+            administrador.eliminar_campeon()
+        elif opcion == "6":
+            #Elimina un item 
+            administrador.eliminar_item()
+        elif opcion == "7":
+            # Salir del Programa
+            print("Saliendo...")
+            Database.close_connection()
+            break
+        else:
+            print("Opción no válida. Por favor seleccione nuevamente.")
 
 def main():
     Database.connect()
@@ -60,7 +97,8 @@ def main():
                 jugador = Jugador(id_usuario)
                 menu_jugador(jugador)
             elif tipo_usuario == "administrador":
-                print("Función de administrador no implementada.")
+                administrador = Administrador()
+                menu_administrador(administrador)
             else:
                 print("Inicio de sesión fallido.")
         
