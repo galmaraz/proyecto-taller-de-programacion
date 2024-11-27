@@ -4,20 +4,7 @@ from database import Database
 class Crear:
     def __init__(self):
         self.connection = Database.get_connection()  # Ahora funciona correctamente
-
-    def nuevo_campeon(self):
-        """Crea un nuevo campeón, ítem relacionado y partida."""
-        nombre = input("Nombre del campeón: ")
-        rol = input("Rol del campeón: ")
-        habilidades = input("Habilidades del campeón: ")
-
-        cursor = self.connection.cursor()
-        sql_campeon = "INSERT INTO campeones (nombre, rol, habilidades) VALUES (%s, %s, %s)"
-        cursor.execute(sql_campeon, (nombre, rol, habilidades))
-        self.connection.commit()
-        campeon_id = cursor.lastrowid
-        print(f"¡Campeón creado con ID: {campeon_id}!")
-
+        
 class IniciarSesion:
     def __init__(self):
         self.connection = Database.get_connection()  # Ahora funciona correctamente
